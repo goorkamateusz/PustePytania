@@ -3,7 +3,6 @@ from ImageToText import image_to_text
 
 # Parametry połączenia
 TOKEN = "{token}"
-GUILD = "{guild}"
 
 bot = commands.Bot(command_prefix='!')
 
@@ -13,10 +12,7 @@ bot = commands.Bot(command_prefix='!')
 @bot.event
 async def on_ready():
     for guild in bot.guilds:
-        if guild.name == GUILD:
-            break
-
-    print( f'{bot.user} jest połączony z:\n{guild.name}(id: {guild.id})\n' )
+        print( f'{bot.user} jest połączony z:\n{guild.name}(id: {guild.id})\n' )
 
 #
 # Czytanie historii i przetwarzanie obrazów
@@ -67,10 +63,10 @@ async def history(ctx):
                 text = image_to_text( image_url )
 
                 # Odpowiedz
-                if yes_cnt != no_cnt :
-                    answer = "PRAWDA" if yes_cnt > no_cnt else "FAŁSZ"
+                if abs(yes_cnt - no_cnt) > min( [ yes_cnt, no_cnt ] ) :
+                    answer = "PRAWDA" if yes_cnt > no_cnt else "FAŁSZ "
                 else:
-                    answer = "???"
+                    answer = "? ? ? "
 
                 answer = " | ".join( [answer, "prawda({}), fałsz({})".format( yes_cnt, no_cnt )] )
 
@@ -90,6 +86,7 @@ async def history(ctx):
                 del exam
                 exam = []
                 print( "\nZapisano do pliku exam-{}.txt\n".format(exam_num) )
+                file.close()
 
     # Koniec czytania
     raport = "Gotowe! Zebraliśmy {} screenów w {} plikach! Pomineliśmy oznaczonych 🔕: {}.".format( sc_counter, exam_num-1, skip_counter )

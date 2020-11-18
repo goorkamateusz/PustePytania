@@ -18,7 +18,7 @@ pip install re
 ```
 
 ## Uruchomienie
-Należy utworzyć i skonfigurować bota. I skonfigurować zmienne TOKEN i GUILD.
+Należy utworzyć i skonfigurować bota. I skonfigurować zmienną TOKEN.
 
 ## Wykorzystanie
 - Pomija wiadomości oznaczone: 🔕;
