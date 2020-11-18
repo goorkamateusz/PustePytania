@@ -19,3 +19,9 @@ pip install re
 
 ## Uruchomienie
 Należy utworzyć i skonfigurować bota. I skonfigurować zmienne TOKEN i GUILD.
+
+## Wykorzystanie
+- Pomija wiadomości oznaczone: 🔕;
+- Reakcja 🆕 włącza zapisywanie do nowego pliku;
+- Reakcje "❌", "✖" oznaczają FAŁSZ;
+- Reakcje "✔", "✅", "✔️" oznaczają PRAWDA;
