@@ -28,12 +28,17 @@ async def history(ctx):
     skip_counter = 0
     exam_num = 1
     exam = []
+    msg_counter = 0
 
     # Czytanie wiadomości
-    async for message in ctx.channel.history():
+    async for message in ctx.channel.history(limit=1000).flatten():
+        msg_counter += 1
+        print( msg_counter )
+
         image_url = ""
         yes_cnt   = 0
         no_cnt    = 0
+        skip_q_cnt= 0
         save_now  = False
         skip      = False
 
@@ -47,10 +52,13 @@ async def history(ctx):
             # Czyta reakcje
             for react in message.reactions:
                 if str(react.emoji) in {"✔", "✅", "✔️"}:
-                    yes_cnt = react.count
+                    yes_cnt = react.count - 1
 
                 if str(react.emoji) in {"❌", "✖"}:
-                    no_cnt = react.count
+                    no_cnt = react.count - 1
+
+                if str(react.emoji) in {"⏭", "⏩", "➡", ""}:
+                    skip_q_cnt = react.count - 1
 
                 if str(react.emoji) == "🆕":
                     save_now = True
@@ -59,7 +67,7 @@ async def history(ctx):
                     skip = True
 
             if not skip :
-                # Polecenie
+                # Poleceniestrz
                 text = image_to_text( image_url )
 
                 # Odpowiedz
@@ -68,7 +76,10 @@ async def history(ctx):
                 else:
                     answer = "? ? ? "
 
-                answer = " | ".join( [answer, "prawda({}), fałsz({})".format( yes_cnt, no_cnt )] )
+                if skip_q_cnt > 0 :
+                    answer = " | ".join( [answer, "prawda({}), fałsz({}), nie wiem({})".format( yes_cnt, no_cnt, skip_q_cnt )] )
+                else:
+                    answer = " | ".join( [answer, "prawda({}), fałsz({})".format( yes_cnt, no_cnt )] )
 
                 # Zapisz
                 sc_counter += 1
@@ -82,7 +93,7 @@ async def history(ctx):
                 # Zapisuje do pliku
                 file = open("exam-{}.txt".format(exam_num), "w", encoding="utf-8")
                 file.write( file_head )
-                file.write( "\n\n".join( exam ) )
+                file.write( "\n\n".join( sorted(exam) ) )
                 exam_num += 1
                 del exam
                 exam = []
