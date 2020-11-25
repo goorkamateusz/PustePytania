@@ -1,10 +1,10 @@
 from discord.ext import commands
 from ImageToText import image_to_text
+from PrivateData import TOKEN
 
 # Parametry połączenia
-TOKEN = "{token}"
-
 bot = commands.Bot(command_prefix='!')
+file_head = "Plik wygenerowany na podstawie ankiet AiR 2018\n"
 
 #
 # Komunikat o poprawnym połączeniu.
@@ -81,6 +81,7 @@ async def history(ctx):
             if save_now:
                 # Zapisuje do pliku
                 file = open("exam-{}.txt".format(exam_num), "w", encoding="utf-8")
+                file.write( file_head )
                 file.write( "\n\n".join( exam ) )
                 exam_num += 1
                 del exam

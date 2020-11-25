@@ -18,7 +18,7 @@ pip install re
 ```
 
 ## Uruchomienie
-Należy utworzyć i skonfigurować bota. I skonfigurować zmienną TOKEN.
+Należy utworzyć i skonfigurować bota. I skonfigurować zmienną TOKEN w pliku PrivateData.py.
 
 ## Wykorzystanie
 - Pomija wiadomości oznaczone: 🔕;
