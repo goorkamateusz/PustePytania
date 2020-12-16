@@ -1,5 +1,5 @@
 # PustePytania
-Bot Discorda przetwarzający zrzuty ekranu pytań tworzy plik z odpowiedziami.
+Bot na Discorda przetwarzający zrzuty ekranu pytań i tworzy plik ze zbiorem odpowiedzi.
 
 ## Instalacja
 - Należy zainstalować oprogramowanie `Tesseract-OCR` od Google,
@@ -9,19 +9,27 @@ sudo apt install tesseract-ocr
 sudo apt install tesseract-ocr-pol
 ```
 
-- Wymaga paczek:
+- Wymaga moduły:
 ```
-pip install pytesseract
-pip install discord.py
-pip install requests
-pip install re
+pip3 install pytesseract
+pip3 install discord.py
+pip3 install requests
+pip3 install re
 ```
 
 ## Uruchomienie
-Należy utworzyć i skonfigurować bota. I skonfigurować zmienną TOKEN w pliku PrivateData.py.
+Należy utworzyć i skonfigurować bota w [panelu developera](http://discord.com/developers).
+I skonfigurować zmienną TOKEN w pliku `Config.py`.
+
+Uruchomić poleceniem:
+
+```
+python3 PustePytania.py
+```
 
 ## Wykorzystanie
 - Pomija wiadomości oznaczone: 🔕;
 - Reakcja 🆕 włącza zapisywanie do nowego pliku;
-- Reakcje "❌", "✖" oznaczają FAŁSZ;
-- Reakcje "✔", "✅", "✔️" oznaczają PRAWDA;
+- Reakcje "✔", "✅", "✔️" oznaczają odpowiedź "PRAWDA";
+- Reakcje "❌", "✖" oznaczają odpowiedź "FAŁSZ";
+- Reakcja "⏭" oznacza odpowiedź, jako "nie wiem";

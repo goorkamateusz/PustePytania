@@ -3,4 +3,4 @@
 TOKEN = "token"
 
 # Naglowek pliku
-file_head = "Tekst pytan\n\n"
+file_head = "Plik wygenerowany na podstawie ankiet\n\n"
