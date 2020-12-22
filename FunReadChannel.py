@@ -51,9 +51,10 @@ class Task:
             if str(react.emoji) in {"❌", "✖"}:
                 self.no_cnt = react.count - 1
 
-            if str(react.emoji) in {"⏭", "⏩", "➡", "↘"}:
+            if str(react.emoji) in {"⏭️", "⏭", "⏩", "➡", "↘"}:
                 self.skip_cnt = react.count - 1
-                # BUG nie działają reakcje na skip'y
+                print("skip")
+                # Wiem, ze 1. i 2. emoji wygladaja tak samo, ale widocznie maja rozne kody
 
             if str(react.emoji) in {"🆕"}:
                 self.new_exam = True
