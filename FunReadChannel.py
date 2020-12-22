@@ -125,7 +125,7 @@ class Counter:
     def limit_of_exam(self, exam_num_max = 0):
         """ Limit of exam"""
         if exam_num_max == 0:
-            return True
+            return False
         else:
             return self.exam >= exam_num_max
 
