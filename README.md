@@ -2,19 +2,17 @@
 Bot na Discorda przetwarzający zrzuty ekranu pytań i tworzy plik ze zbiorem odpowiedzi.
 
 ## Instalacja
-- Należy zainstalować oprogramowanie `Tesseract-OCR` od Google,
-  razem z pakietem obsługującym język polski.
+- Bot testowany jedynie na systemie Linux.
+
+- Należy zainstalować oprogramowanie `Tesseract-OCR` od Google, razem z pakietem obsługującym język polski.
 ```
 sudo apt install tesseract-ocr
 sudo apt install tesseract-ocr-pol
 ```
 
-- Wymaga moduły:
+- Instalacja modułów:
 ```
-pip3 install pytesseract
-pip3 install discord.py
-pip3 install requests
-pip3 install re
+pip3 install -r requirements.txt
 ```
 
 ## Uruchomienie

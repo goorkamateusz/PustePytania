@@ -53,7 +53,6 @@ class Task:
 
             if str(react.emoji) in {"⏭️", "⏭", "⏩", "➡", "↘"}:
                 self.skip_cnt = react.count - 1
-                print("skip")
                 # Wiem, ze 1. i 2. emoji wygladaja tak samo, ale widocznie maja rozne kody
 
             if str(react.emoji) in {"🆕"}:

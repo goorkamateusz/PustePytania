@@ -22,3 +22,4 @@ def image_to_text( path ):
 
     # Zwraca wynik
     return result
+    

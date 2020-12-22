@@ -1,0 +1,4 @@
+pytesseract
+discord.py
+requests
+PIL
