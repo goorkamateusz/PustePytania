@@ -26,8 +26,12 @@ python3 PustePytania.py
 ```
 
 ## Wykorzystanie
-- Pomija wiadomości oznaczone: 🔕;
-- Reakcja 🆕 włącza zapisywanie do nowego pliku;
-- Reakcje "✔", "✅", "✔️" oznaczają odpowiedź "PRAWDA";
-- Reakcje "❌", "✖" oznaczają odpowiedź "FAŁSZ";
+- Reakcja 🔕 powoduje pominięcie wiadomości;
+- Reakcja 🆕 zapisuje dotychczasowe do pliku i zaczyna zbierać wiadomości do nowego pliku;
+- Reakcje "✔", "✅", "✔️" oznaczają odpowiedź, jako "PRAWDA";
+- Reakcje "❌", "✖" oznaczają odpowiedź, jako "FAŁSZ";
 - Reakcja "⏭" oznacza odpowiedź, jako "nie wiem";
+
+## Autor
+Górka Mateusz (@maatiug)
+
