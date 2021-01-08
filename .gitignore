@@ -1,4 +1,8 @@
-*.txt
-*.sh
+.vscode
 __pycache__
+
+*.sh
+*.txt
+**.priv.**
+
 !requirements.txt

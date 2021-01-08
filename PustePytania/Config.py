@@ -1,4 +1,3 @@
-# git nie śledzi zmian w tym pliku!
 # Token bota
 TOKEN = "twoj token"
 
