@@ -1,4 +1,5 @@
 from ImageToText import image_to_text
+from CompareString import CompareString
 
 
 class Task:
@@ -82,6 +83,8 @@ class Task:
 
 class Exam:
     """ Klasa testu """
+    strictness = 4
+
     def __init__(self):
         self.task_list = []
 
@@ -96,12 +99,10 @@ class Exam:
         else:
             existing_task.sum_stats(new_task)
 
-    def find_already_added(self, newTask) -> Task:
-        """ """
-        # todo test that
+    def find_already_added(self, new_task) -> Task:
+        """ Find already existed task on list """
         for task in self.task_list:
-            # todo mniej wymagający warunek
-            if task.text == newTask.text:
+            if CompareString.is_similar(task.text, new_task.text, self.strictness):
                 return task
         return None
 
@@ -143,36 +144,6 @@ class Counter:
         else:
             return self.exam >= exam_num_max
 
-
-class CompareString:
-    """ Calculates the similarity of string """
-    @staticmethod
-    def compare(first: str, second: str) -> int:
-        """ compare strings """
-        compare = CompareString(first, second)
-        return compare.similarity()
-
-    def __init__(self, first: str, second: str):
-        self.first = first
-        self.second = second
-
-    def similarity(self) -> int:
-        self.offset()
-        self._compare()
-
-    def offset(self) -> int:
-        for i in range(len(self.first)):
-            if self.first[i] == self.second[0]:
-                return i
-        raise NotSameTask
-
-    def _compare(self):
-
-        pass
-
-
-class NotSameTask(Exception):
-    pass
 
 
 async def readchannel( ctx, file_head, exam_num_max = 0 ):
