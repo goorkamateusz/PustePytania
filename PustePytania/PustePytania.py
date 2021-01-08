@@ -79,6 +79,7 @@ class Task:
         self.skip_cnt /= 2
 
 
+
 class Exam:
     """ Klasa testu """
     def __init__(self):
@@ -87,9 +88,22 @@ class Exam:
     def __len__(self):
         return len(self.task_list)
 
-    def append(self, task: Task):
+    def append(self, new_task: Task):
         """ Append new task """
-        self.task_list.append( task )
+        existing_task = self.find_already_added(new_task)
+        if existing_task is None:
+            self.task_list.append( new_task )
+        else:
+            existing_task.sum_stats(new_task)
+
+    def find_already_added(self, newTask) -> Task:
+        """ """
+        # todo test that
+        for task in self.task_list:
+            # todo mniej wymagający warunek
+            if task.text == newTask.text:
+                return task
+        return None
 
     def sort(self) -> None:
         """ Sort task list """
@@ -128,6 +142,37 @@ class Counter:
             return False
         else:
             return self.exam >= exam_num_max
+
+
+class CompareString:
+    """ Calculates the similarity of string """
+    @staticmethod
+    def compare(first: str, second: str) -> int:
+        """ compare strings """
+        compare = CompareString(first, second)
+        return compare.similarity()
+
+    def __init__(self, first: str, second: str):
+        self.first = first
+        self.second = second
+
+    def similarity(self) -> int:
+        self.offset()
+        self._compare()
+
+    def offset(self) -> int:
+        for i in range(len(self.first)):
+            if self.first[i] == self.second[0]:
+                return i
+        raise NotSameTask
+
+    def _compare(self):
+
+        pass
+
+
+class NotSameTask(Exception):
+    pass
 
 
 async def readchannel( ctx, file_head, exam_num_max = 0 ):
