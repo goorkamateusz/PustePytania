@@ -1,6 +1,6 @@
 from discord.ext import commands
 import Config
-import PustePytania as read
+from PustePytania import *
 
 if __name__ == "__main__":
 
@@ -21,13 +21,13 @@ if __name__ == "__main__":
     @bot.command(name="readchannel")
     async def readchannel(ctx):
         """ Czyta i przetwarza historie z kanału, na którym został wywołany. """
-        await read.readchannel( ctx, Config.file_head )
+        await PustePytania.readchannel( ctx, Config.file_head )
 
 
     @bot.command(name="readlast")
     async def readlast(ctx):
         """ Czyta i przetwarza wiadomości do najświeższej reakcji 🆕"""
-        await read.readchannel( ctx, Config.file_head, 1 )
+        await PustePytania.readchannel( ctx, Config.file_head, 1 )
 
     # Uruchomienie bota
     bot.run(Config.TOKEN)

@@ -7,6 +7,7 @@ class Counter:
         self.skip   = 0
         self.exam   = 0
         self.msg    = 0
+        self.reapeted = 0
 
     def limit_of_exam(self, exam_num_max = 0):
         """ Limit of exam"""

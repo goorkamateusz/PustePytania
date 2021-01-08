@@ -9,6 +9,7 @@ class Exam:
 
     def __init__(self):
         self.task_list = []
+        self.reapeted_cnt = 0
 
     def __len__(self):
         return len(self.task_list)
@@ -25,11 +26,13 @@ class Exam:
         """ Find already existed task on list """
         for task in self.task_list:
             if CompareString.is_similar(task.text, new_task.text, self.strictness):
+                self.reapeted_cnt += 1
                 return task
         return None
 
     def sort(self) -> None:
         """ Sort task list """
+        self.task_list = list(dict.fromkeys( self.task_list ))
         self.task_list = sorted(self.task_list)
 
     def clear(self) -> None:
@@ -37,13 +40,10 @@ class Exam:
         del self.task_list
         self.task_list = []
 
-    def remove_dup(self) -> None:
-        """ Remove duplicate"""
-        self.task_list = list(dict.fromkeys( self.task_list ))
-        self.sort()
-
     def save(self, file_name, exam_num, file_head = 0):
         """ Save to file """
+        self.sort()
+
         file = open(f"{file_name}-{exam_num}.txt", "w", encoding="utf-8")
         file.write( file_head )
 
