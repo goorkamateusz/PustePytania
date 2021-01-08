@@ -11,8 +11,9 @@ class PustePytania:
         file_head - naglowek pliku tekstowego
         exam_num_max - ilosc testow do wczytania (0 - jesli wczytac wszystkie)
         """
-        print("Trwa przeczesywanie wiadomości...")
-        await ctx.send( "Trwa przeczesywanie wiadomości...\n" )
+
+        pustepytania = PustePytania(ctx)
+        pustepytania.echo("Trwa przeczesywanie wiadomości...")
 
         exam = Exam()
         cnt = Counter()
@@ -21,9 +22,8 @@ class PustePytania:
             cnt.msg += 1
 
             for att in message.attachments:
-                if ".png" in att.url or ".jpg" in att.url:
-                    task = Task()
-                    task.react(message.reactions)
+                if PustePytania.is_photo(att.url):
+                    task = Task(message.reactions)
 
                     if not task.skip():
                         task.set_text( image_to_text(att.url) )
@@ -52,5 +52,22 @@ class PustePytania:
         raport = [  f"Gotowe!\nZebraliśmy {cnt.screen} screenów w {cnt.exam} plikach!\n",
                     f"Pomineliśmy oznaczonych 🔕: {cnt.skip}. Powtórzeń: {cnt.reapeted}" ]
         raport = "".join( raport )
-        await ctx.send( raport )
-        print( raport )
+        pustepytania.echo(raport)
+
+
+
+    def __init__(self, ctx):
+        self.ctx = ctx
+
+    def echo(self, message: str) -> None:
+        """ Print and send value """
+        await self.ctx.send(message)
+        print(message)
+
+    @staticmethod
+    def is_photo(url: str) -> bool:
+        """ Is photo? """
+        url = url.lower()
+        return ".png" in url or ".jpg" in url
+
+

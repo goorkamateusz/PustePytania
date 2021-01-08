@@ -2,13 +2,14 @@
 
 class Task:
     """ Klasa odpowiedzi na pytania """
-    def __init__(self):
+    def __init__(self, reactions):
         self.text       = ""
         self.yes_cnt    = 0
         self.no_cnt     = 0
         self.skip_cnt   = 0
         self.new_exam   = False
         self.skip_photo = False
+        self.react(reactions)
 
     def __lt__(self, other):
         if self.text != other.text:
