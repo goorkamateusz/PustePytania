@@ -13,7 +13,7 @@ class PustePytania:
         """
 
         pustepytania = PustePytania(ctx)
-        pustepytania.echo("Trwa przeczesywanie wiadomości...")
+        await pustepytania.echo("Trwa przeczesywanie wiadomości...")
 
         exam = Exam()
         cnt = Counter()
@@ -27,10 +27,17 @@ class PustePytania:
 
                     if not task.skip():
                         task.set_text( image_to_text(att.url) )
-                        exam.append( task )
                         cnt.screen += 1
 
-                        print( cnt.msg, "\n", cnt.screen, " ", task )
+                        try:
+                            exam.append( task )
+                        except reapetedTask:
+                            print( f"\n{cnt.msg} msg, {cnt.screen} img | POWTORZENIE!" )
+                            cnt.reapeted += 1
+                        else:
+                            print( f"\n{cnt.msg} msg, {cnt.screen} img | " )
+
+                        print( task )
                     else:
                         cnt.skip += 1
 
@@ -38,9 +45,8 @@ class PustePytania:
                         exam.save("exam", cnt.exam, file_head)
                         exam.clear()
                         cnt.exam += 1
-                        cnt.reapeted += exam.reapeted_cnt
 
-                        print( f"\n--- Zapisan {cnt.exam} test ---\n" )
+                        print( f"\n=== Zapisano {cnt.exam} test ============================\n" )
 
                         if cnt.limit_of_exam( exam_num_max ):
                             break
@@ -49,17 +55,17 @@ class PustePytania:
                 break
 
         # Koniec czytania
+        print()
         raport = [  f"Gotowe!\nZebraliśmy {cnt.screen} screenów w {cnt.exam} plikach!\n",
                     f"Pomineliśmy oznaczonych 🔕: {cnt.skip}. Powtórzeń: {cnt.reapeted}" ]
         raport = "".join( raport )
-        pustepytania.echo(raport)
-
+        await pustepytania.echo(raport)
 
 
     def __init__(self, ctx):
         self.ctx = ctx
 
-    def echo(self, message: str) -> None:
+    async def echo(self, message: str) -> None:
         """ Print and send value """
         await self.ctx.send(message)
         print(message)

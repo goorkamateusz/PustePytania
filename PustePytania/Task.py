@@ -18,7 +18,7 @@ class Task:
             return self.sum_react() < other.sum_react()
 
     def __str__(self):
-        return self.text+"\n"+self.generate_answer()+" | "+self.generate_comment()
+        return f"> {self.text}\n> {self.generate_answer()} | {self.generate_comment()}"
 
     def set_text(self, text) -> None:
         """ Set text """
@@ -77,6 +77,7 @@ class Task:
         self.skip_cnt /= 2
 
     def sum_stats(self, other) -> None:
+        """ Metods sum stats of task """
         self.no_cnt   += other.no_cnt
         self.yes_cnt  += other.yes_cnt
         self.skip_cnt += other.skip_cnt
