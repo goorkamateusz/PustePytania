@@ -38,9 +38,17 @@ class Task:
     def generate_comment(self) -> str:
         """ Return comment """
         if self.skip_cnt > 0 :
-            return f"prawda({self.yes_cnt}), fałsz({self.no_cnt}), nie wiem({self.skip_cnt})"
+            return f"{self.get_conffidence()} | prawda({self.yes_cnt}), fałsz({self.no_cnt}), nie wiem({self.skip_cnt})"
         else:
-            return f"prawda({self.yes_cnt}), fałsz({self.no_cnt})"
+            return f"{self.get_conffidence()} | prawda({self.yes_cnt}), fałsz({self.no_cnt})"
+
+    def get_conffidence(self) -> str:
+        try:
+            out = (100 * max(self.yes_cnt, self.no_cnt)) / (self.yes_cnt+self.no_cnt+self.skip_cnt)
+        except ZeroDivisionError:
+            return "0.00"
+        else:
+            return round(out, 2)
 
     def react(self, reactions):
         """ Process reactions """
