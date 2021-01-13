@@ -18,7 +18,7 @@ class PustePytania:
         exam = Exam()
         cnt = Counter()
 
-        async for message in ctx.channel.history(limit=1000):
+        async for message in ctx.channel.history(limit=None):
             cnt.msg += 1
 
             for att in message.attachments:
