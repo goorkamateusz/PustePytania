@@ -1,0 +1,4 @@
+
+class EndOfExamException(Exception):
+    pass
+

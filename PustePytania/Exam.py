@@ -2,6 +2,11 @@
 from Task import *
 from Counter import *
 from CompareString import *
+from ImageToText import image_to_text
+
+
+class reapetedTask(Exception):
+    pass
 
 class Exam:
     """ Klasa testu """
@@ -9,7 +14,6 @@ class Exam:
 
     def __init__(self):
         self.task_list = []
-        self.reapeted_cnt = 0
 
     def __len__(self):
         return len(self.task_list)
@@ -21,12 +25,12 @@ class Exam:
             self.task_list.append( new_task )
         else:
             existing_task.sum_stats(new_task)
+            raise reapetedTask()
 
     def find_already_added(self, new_task) -> Task:
         """ Find already existed task on list """
         for task in self.task_list:
             if CompareString.is_similar(task.text, new_task.text, self.strictness):
-                self.reapeted_cnt += 1
                 return task
         return None
 
