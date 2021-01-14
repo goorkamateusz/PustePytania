@@ -6,3 +6,6 @@ __pycache__
 **.priv.**
 
 !requirements.txt
+
+out/
+tests/
