@@ -38,6 +38,9 @@ python3 PustePytania
 - Za powtórzenia uznane są screeny, w których liczba różnic w tekście jest większa niż 4 (`Exam.strictness`).
   Różnica jest wyliczana [Odległością Levenshteina](https://pl.wikipedia.org/wiki/Odleg%C5%82o%C5%9B%C4%87_Levenshteina).
 
+## Plik wyjściowy
+[Struktura pliku wyjścioweg](DOCS.md#Plik-wyjsciowy)
+
 ## Autor
 Górka Mateusz (@goorkmateusz)
 

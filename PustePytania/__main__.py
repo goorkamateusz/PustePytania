@@ -4,8 +4,7 @@ from PustePytania import *
 
 if __name__ == "__main__":
 
-    if Config.TOKEN == "twoj token":
-        print("Error: Skonfiguruj swoj token w pliku PustePytania/Config.py!")
+    if not PustePytania.check_config(Config):
         exit()
 
     # Parametry połączenia

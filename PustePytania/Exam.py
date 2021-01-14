@@ -50,9 +50,8 @@ class Exam:
         self.sort()
 
         file = Exam.create_file(file_name, exam_num)
-        file.write( file_head )
-
-        file.write( "\n\n".join( map(str,self.task_list) ) )
+        file.write(file_head + "\n\n\n")
+        file.write("\n\n".join( map(str,self.task_list) ))
         file.close()
 
     @staticmethod
