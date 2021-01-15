@@ -1,9 +1,9 @@
 import os
 import Config
-from ExamFile import *
+from FilesGenerator import *
 
 class DoTestownika:
-    """ main class """  
+    """ main class """
 
     @staticmethod
     def read_dir(dir_path = Config.OUTPUT_DIR):
@@ -22,6 +22,6 @@ class DoTestownika:
     @staticmethod
     def prase_exam(file_path):
         """ public """
-        exam = ExamFile(file_path)
+        exam = FilesGenerator(file_path)
         exam.create_dir()
-        exam.convert()
+        exam.convert_and_save()
