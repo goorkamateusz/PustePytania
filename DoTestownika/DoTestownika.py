@@ -1,7 +1,9 @@
 import os
 import Config
+from ExamFile import *
 
 class DoTestownika:
+    """ main class """  
 
     @staticmethod
     def read_dir(dir_path = Config.OUTPUT_DIR):
@@ -19,4 +21,7 @@ class DoTestownika:
 
     @staticmethod
     def prase_exam(file_path):
-        pass
+        """ public """
+        exam = ExamFile(file_path)
+        exam.create_dir()
+        exam.convert()
