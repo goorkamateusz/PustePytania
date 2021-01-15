@@ -18,7 +18,7 @@ class Task:
             return self.sum_react() < other.sum_react()
 
     def __str__(self):
-        return f"> {self.text}\n> {self.generate_answer()} | {self.generate_comment()}"
+        return f"{self.text}\n{self.generate_answer()} | {self.generate_comment()}"
 
     def set_text(self, text) -> None:
         """ Set text """
@@ -38,9 +38,9 @@ class Task:
     def generate_comment(self) -> str:
         """ Return comment """
         if self.skip_cnt > 0 :
-            return f"prawda({self.yes_cnt}), fałsz({self.no_cnt}), nie wiem({self.skip_cnt})"
+            return f"prawda:{self.yes_cnt}, fałsz:{self.no_cnt}, nie wiem:{self.skip_cnt}"
         else:
-            return f"prawda({self.yes_cnt}), fałsz({self.no_cnt})"
+            return f"prawda:{self.yes_cnt}, fałsz:{self.no_cnt}"
 
     def react(self, reactions):
         """ Process reactions """
