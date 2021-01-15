@@ -5,6 +5,19 @@ class PustePytania:
     """ Główna klasa programu """
 
     @staticmethod
+    def check_config(config) -> bool:
+        """ Sprawdza poprawnosc pliku konfiguracji """
+        if config.TOKEN == "twoj token":
+            print("Error: Skonfiguruj swoj token w pliku PustePytania/Config.py!")
+            return False
+
+        if "\n\n\n" in config.file_head:
+            print("Error: Naglowek pliku nie powinnien zawierac dwoch pustych linii")
+            return False
+
+        return True
+
+    @staticmethod
     async def readchannel(ctx, file_head, exam_num_max = 0 ):
         """ Czyta z historii kanalow okrelsona ilosc testow.
         ctx - discord ctx

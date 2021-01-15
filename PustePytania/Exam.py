@@ -3,6 +3,7 @@ from Task import *
 from Counter import *
 from CompareString import *
 from ImageToText import image_to_text
+import os
 
 
 class reapetedTask(Exception):
@@ -17,6 +18,10 @@ class Exam:
 
     def __len__(self):
         return len(self.task_list)
+
+    def is_empty(self):
+        """ public """
+        return len(self) == 0
 
     def append(self, new_task: Task):
         """ Append new task """
@@ -48,8 +53,19 @@ class Exam:
         """ Save to file """
         self.sort()
 
-        file = open(f"{file_name}-{exam_num}.txt", "w", encoding="utf-8")
-        file.write( file_head )
-
-        file.write( "\n\n".join( map(str,self.task_list) ) )
+        file = Exam.create_file(file_name, exam_num)
+        file.write(file_head + "\n\n\n")
+        file.write("\n\n".join( map(str,self.task_list) ))
         file.close()
+
+    @staticmethod
+    def create_file(file_name, exam_num):
+        """ private """
+        out_dir = f"{os.getcwd()}/out"
+
+        try:
+            os.mkdir(f"{out_dir}")
+        except FileExistsError:
+            pass
+
+        return open(f"{out_dir}/{file_name}-{exam_num}.txt", "w", encoding="utf-8")
