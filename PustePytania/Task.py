@@ -2,6 +2,8 @@
 
 class Task:
     """ Klasa odpowiedzi na pytania """
+    _ignore_tasks = False
+
     def __init__(self, reactions):
         self.text       = ""
         self.yes_cnt    = 0
@@ -53,6 +55,19 @@ class Task:
     def react(self, reactions):
         """ Process reactions """
         for react in reactions:
+            if str(react.emoji) in {"🛑"}:
+                Task._ignore_tasks = True
+
+            if str(react.emoji) in {"🆕"}:
+                if Task._ignore_tasks:
+                    Task._ignore_tasks = False
+                else:
+                    self.new_exam = True
+
+            if str(react.emoji) in {"🔕"}:
+                self.skip_photo = True
+                break
+
             if str(react.emoji) in {"✔", "✅", "✔️"}:
                 self.yes_cnt = react.count - 1
 
@@ -63,15 +78,10 @@ class Task:
                 self.skip_cnt = react.count - 1
                 # Wiem, ze 1. i 2. emoji wygladaja tak samo, ale widocznie maja rozne kody
 
-            if str(react.emoji) in {"🆕"}:
-                self.new_exam = True
-
-            if str(react.emoji) in {"🔕"}:
-                self.skip_photo = True
 
     def skip(self) -> bool:
         """ Is skip task """
-        return self.skip_photo
+        return self.skip_photo or Task._ignore_tasks
 
     def end_of_exam(self) -> bool:
         """ Is last task of the exam """

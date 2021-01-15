@@ -19,6 +19,10 @@ class Exam:
     def __len__(self):
         return len(self.task_list)
 
+    def is_empty(self):
+        """ public """
+        return len(self) == 0
+
     def append(self, new_task: Task):
         """ Append new task """
         existing_task = self.find_already_added(new_task)

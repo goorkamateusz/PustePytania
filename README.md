@@ -29,6 +29,8 @@ python3 PustePytania
 
 - Znaczenie reakcji pod wiadomością:
   - Reakcja 🔕 powoduje pominięcie wiadomości;
+  - Reakcja 🛑 powoduje, że wszystkie wiadomości do wiadomości
+    z reakcją 🆕 są pomijane (ta wiadomość jest już brana pod uwagę);
   - Reakcja 🆕 zapisuje dotychczasowe do pliku i zaczyna zbierać wiadomości do nowego pliku;
   - Reakcje "✔", "✅", "✔️" oznaczają odpowiedź, jako "PRAWDA";
   - Reakcje "❌", "✖" oznaczają odpowiedź, jako "FAŁSZ";
