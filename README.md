@@ -57,8 +57,15 @@ Możesz je wykorzystywać osobno, albo połączyć w jedną wspólną bazę pole
 - Za powtórzenia uznane są screeny, w których liczba różnic w tekście jest większa niż 4 (`Exam.strictness`).
   Różnica jest wyliczana [Odległością Levenshteina](https://pl.wikipedia.org/wiki/Odleg%C5%82o%C5%9B%C4%87_Levenshteina).
 
-## Plik wyjściowy
-[Struktura pliku wyjścioweg](DOCS.md#Plik-wyjsciowy)
+
+## Warto doczytać
+
+### Testownik
+- Na końcu polecenia w pliku testownika dodawany jest procent na ile odpowiedź jest poprawna;
+- Jeżeli pytanie jest uznane za niepewne (odpowiedź "? ? ?") to w pliku testownika, żadna odpowiedź nie jest poprawna;
+
+### Standardy plików wyjściowych
+[Struktura pliku wyjściowego](DOCS.md#Plik-wyjsciowy)
 
 ## Autor
 Górka Mateusz (@goorkmateusz)

@@ -1,3 +1,4 @@
+import re
 
 class TaskParser:
     """ Task parser """
@@ -11,7 +12,8 @@ class TaskParser:
     def __init__(self, text_input: str):
         self.input = text_input.split("\n")
         self.input = list(filter(lambda c: c!='', self.input))
-        self.true = None
+        self.answer = None
+        self.stat = None
         self.parse_answers()
 
     def generate(self) -> str:
@@ -20,15 +22,14 @@ class TaskParser:
 
     def get_ans_code(self) -> str:
         """ private """
-        if self.true is None:
-            return "X11"
+        if self.answer is None:
+            return "X00"
         else:
-            return "X10" if self.true else "X01"
+            return "X10" if self.answer else "X01"
 
     def get_ans_stat(self) -> str:
         """ private """
-        return ""
-        # TODO s answer statictis
+        return f"  [{self.stat}%]"
 
     def get_content(self):
         """ private """
@@ -38,4 +39,5 @@ class TaskParser:
         """ private """
         text = self.input[-1].split(" | ")
         if "? ? ?" not in text[0]:
-            self.true = "PRAWDA" in text[0]
+            self.answer = "PRAWDA" in text[0]
+        self.stat = text[1]
