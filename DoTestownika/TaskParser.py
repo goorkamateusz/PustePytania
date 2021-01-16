@@ -1,11 +1,11 @@
 
-class TaskPraser:
+class TaskParser:
     """ Task parser """
 
     @staticmethod
-    def praser(text: str) -> str:
+    def parser(text: str) -> str:
         """ Parse task text to testownik file """
-        task = TaskPraser(text)
+        task = TaskParser(text)
         return task.generate()
 
     def __init__(self, text_input: str):

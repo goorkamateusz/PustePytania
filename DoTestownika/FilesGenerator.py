@@ -1,6 +1,6 @@
 import os
 import Config
-from TaskPraser import *
+from TaskParser import TaskParser
 
 class FilesGenerator:
     """ Exam file """
@@ -47,12 +47,12 @@ class FilesGenerator:
         task_text = ""
         for line in self.file:
             if FilesGenerator.is_empty_line(line):
-                self._save_task_file(TaskPraser.praser(task_text))
+                self._save_task_file(TaskParser.parser(task_text))
                 return True
             else:
                 task_text += line
 
-        self._save_task_file(TaskPraser.praser(task_text))
+        self._save_task_file(TaskParser.parser(task_text))
         return False
 
     def _save_task_file(self, outfile_text: str):
