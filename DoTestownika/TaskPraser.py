@@ -8,7 +8,7 @@ class TaskPraser:
         task = TaskPraser(text)
         return task.generate()
 
-    def __init__(self, text_input):
+    def __init__(self, text_input: str):
         self.input = text_input.split("\n")
         self.true = None
         self.parse_answers()

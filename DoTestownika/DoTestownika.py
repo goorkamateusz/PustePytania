@@ -6,14 +6,21 @@ class DoTestownika:
     """ main class """
 
     @staticmethod
-    def read_dir(dir_path = Config.OUTPUT_DIR):
+    def read_dir(dir_path = Config.INPUT_DIR):
         """ public """
-        for file in os.listdir(dir_path):
-            if os.path.isfile(file):
-                if ".txt" in file:
-                    DoTestownika.prase_exam(file)
+        try:
+            os.mkdir(Config.OUTPUT_DIR)
+        except FileExistsError:
+            pass
 
-            elif os.path.isdir(file):
+        for file in os.listdir(dir_path):
+            file_path = dir_path+"/"+file
+            if os.path.isfile(file_path):
+                if ".txt" in file:
+                    print(f"input file: {file}")
+                    DoTestownika.prase_exam(file_path)
+
+            elif os.path.isdir(file_path):
                 DoTestownika.read_dir(file)
 
             else:
@@ -25,3 +32,6 @@ class DoTestownika:
         exam = FilesGenerator(file_path)
         exam.create_dir()
         exam.convert_and_save()
+
+if __name__ == "__main__":
+    DoTestownika.read_dir()
