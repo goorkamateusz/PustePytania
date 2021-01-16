@@ -18,3 +18,12 @@
 
 - między treścią nagłówka, a pytaniami przynajmniej - minimum 2 linie przerwy;
 - między zadaniami - linia przerwy;
+
+## Plik wyjściowy - testownik
+
+```
+<Zakodowana poprawna odpowiedź>
+<Treść polecenia> [<Statystyki udzielonych odpowiedzi>]
+PRAWDA
+FAŁSZ
+```

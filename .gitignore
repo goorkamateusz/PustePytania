@@ -1,5 +1,6 @@
 .vscode
 __pycache__
+*.pyc
 
 *.sh
 *.txt
@@ -8,4 +9,5 @@ __pycache__
 !requirements.txt
 
 out/
+out_**/
 tests/
