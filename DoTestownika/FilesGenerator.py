@@ -4,6 +4,7 @@ from TaskPraser import *
 
 class FilesGenerator:
     """ Exam file """
+    file_cnt = 0
 
     def __init__(self, file_path):
         self.file_path = file_path
@@ -43,9 +44,14 @@ class FilesGenerator:
 
     def _prase_and_save_task(self) -> bool:
         """ private """
-        TaskPraser.prase(self.file)
+        file_path = f"{self.dir_path}/{FilesGenerator.file_cnt}"
 
-        raise NotImplementedError()
+        if os.path.isfile(file_path):
+            raise FileExistsError()
+
+        file_out = open(file_path, "w")
+        file_out.write(TaskPraser.prase(self.file))
+        file_out.close()
 
     def _read_task(self) -> str:
         """ private """
