@@ -21,7 +21,7 @@ class FilesGenerator:
 
     def convert_and_save(self):
         """ public """
-        self.file = open(self.input_file_path, "r")
+        self.file = iter(open(self.input_file_path, "r").readlines())
 
         self._skip_head_file()
         self._split_file_to_tasks_file()
@@ -29,7 +29,7 @@ class FilesGenerator:
     def _skip_head_file(self):
         """ private """
         newline_cnt = 0
-        for line in self.file.readline():
+        for line in self.file:
             if FilesGenerator.is_empty_line(line):
                 newline_cnt += 1
                 if newline_cnt > 1:
@@ -44,25 +44,28 @@ class FilesGenerator:
 
     def _prase_and_save_task(self) -> bool:
         """ private """
+        task_text = ""
+        for line in self.file:
+            if FilesGenerator.is_empty_line(line):
+                self._save_task_file(TaskPraser.praser(task_text))
+                return True
+            else:
+                task_text += line
+
+        self._save_task_file(TaskPraser.praser(task_text))
+        return False
+
+    def _save_task_file(self, outfile_text: str):
         file_path = f"{self.dir_path}/{FilesGenerator.file_cnt}.txt"
 
         if os.path.isfile(file_path):
             raise FileExistsError()
 
-        file_out = open(file_path, "w")
-        file_out.write(TaskPraser.prase(self._read_task()))
+        file_out = open(file_path, "w", encoding="utf-8")
+        file_out.write(outfile_text)
         file_out.close()
 
         FilesGenerator.file_cnt += 1
-
-    def _read_task(self) -> str:
-        """ private """
-        task_text = ""
-        for line in self.file.readline():
-            if FilesGenerator.is_empty_line(line):
-                break
-            task_text += line
-        return task_text
 
     @staticmethod
     def is_empty_line(line) -> bool:

@@ -1,15 +1,16 @@
 
 class TaskPraser:
-    """ Task praser """
+    """ Task parser """
 
     @staticmethod
-    def prase(text: str) -> str:
-        """ Prase task text to testownik file """
+    def praser(text: str) -> str:
+        """ Parse task text to testownik file """
         task = TaskPraser(text)
         return task.generate()
 
     def __init__(self, text_input: str):
         self.input = text_input.split("\n")
+        self.input = list(filter(lambda c: c!='', self.input))
         self.true = None
         self.parse_answers()
 
