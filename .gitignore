@@ -9,4 +9,5 @@ __pycache__
 !requirements.txt
 
 out/
+out_**/
 tests/

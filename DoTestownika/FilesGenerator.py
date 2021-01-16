@@ -21,7 +21,7 @@ class FilesGenerator:
 
     def convert_and_save(self):
         """ public """
-        self.file = iter(open(self.input_file_path, "r").readlines())
+        self.file = iter(open(self.input_file_path, "r", encoding="utf-8").readlines())
 
         self._skip_head_file()
         self._split_file_to_tasks_file()
@@ -47,12 +47,16 @@ class FilesGenerator:
         task_text = ""
         for line in self.file:
             if FilesGenerator.is_empty_line(line):
-                self._save_task_file(TaskParser.parser(task_text))
-                return True
+                if task_text != "":
+                    self._save_task_file(TaskParser.parser(task_text))
+                    return True
+                else:
+                    continue
             else:
                 task_text += line
 
-        self._save_task_file(TaskParser.parser(task_text))
+        if task_text != "":
+            self._save_task_file(TaskParser.parser(task_text))
         return False
 
     def _save_task_file(self, outfile_text: str):
