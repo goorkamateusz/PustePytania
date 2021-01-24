@@ -10,4 +10,6 @@ __pycache__
 
 out/
 out_**/
+download/
+data/
 tests/

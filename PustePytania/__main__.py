@@ -2,6 +2,7 @@ from discord.ext import commands
 import Config
 from PustePytania import *
 from RenameFiles import *
+from Downloader import *
 
 if __name__ == "__main__":
 
@@ -30,7 +31,13 @@ if __name__ == "__main__":
         """ Czyta i przetwarza wiadomości do najświeższej reakcji 🆕"""
         await PustePytania.readchannel( ctx, Config.file_head, 1 )
         RenameFiles.rename(Config.EXAM_NAME)
-        
+
+
+    @bot.command(name="download")
+    async def download(ctx, arg):
+        """ Pobiera pliki o określonym formacie z kanału """
+        await Downloader.get_all_from_channel(ctx, arg)
+
 
     # Uruchomienie bota
     bot.run(Config.TOKEN)
