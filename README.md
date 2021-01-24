@@ -1,4 +1,31 @@
-# PustePytania
+# PustePytania (pakiet)
+
+## Spis treści
+- [PustePytania (pakiet)](#pustepytania-pakiet)
+  - [Spis treści](#spis-treści)
+  - [Autor](#autor)
+- [PustePytania (bot)](#pustepytania-bot)
+  - [Instalacja](#instalacja)
+  - [Uruchomienie](#uruchomienie)
+    - [Jak zapisać, jako baza pytań do testownika?](#jak-zapisać-jako-baza-pytań-do-testownika)
+  - [Wykorzystanie](#wykorzystanie)
+  - [Warto doczytać](#warto-doczytać)
+    - [Testownik](#testownik)
+    - [Standardy plików wyjściowych](#standardy-plików-wyjściowych)
+- [PDFDoTekstowego](#pdfdotekstowego)
+  - [Instalacja](#instalacja-1)
+  - [Uruchomienie](#uruchomienie-1)
+- [DoTestownika](#dotestownika)
+
+## Autor
+Górka Mateusz (@goorkmateusz)
+
+
+
+___
+<br/><br/>
+
+# PustePytania (bot)
 Bot na Discorda przetwarzający zrzuty ekranu pytań i tworzy plik ze zbiorem odpowiedzi.
 
 ## Instalacja
@@ -67,6 +94,26 @@ Możesz je wykorzystywać osobno, albo połączyć w jedną wspólną bazę pole
 ### Standardy plików wyjściowych
 [Struktura pliku wyjściowego](DOCS.md#Plik-wyjsciowy)
 
-## Autor
-Górka Mateusz (@goorkmateusz)
 
+
+___
+<br/><br/>
+
+# PDFDoTekstowego
+Przetwarza wiele plików PDF do listy zadań usuwając powtórzone zadania.
+
+## Instalacja
+Wymaga zainstalowania modułów: `pdftotext`, `re`
+
+## Uruchomienie
+```
+python3 PDFDoTekstowego
+```
+
+
+
+___
+<br/><br/>
+
+# DoTestownika
+Zobacz jak wykorzystać razem z [botem PustePytania](#jak-zapisać-jako-baza-pytań-do-testownika).
