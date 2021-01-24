@@ -5,11 +5,8 @@ __pycache__
 *.sh
 *.txt
 **.priv.**
+**_local**
 
 !requirements.txt
 
-out/
-out_**/
-download/
-data/
-tests/
+data_files

@@ -4,7 +4,7 @@ import re
 import Report
 
 class Downloader:
-    local_dir = "download"
+    local_dir = "data_files/download"
     file_cnt = 0
 
     @staticmethod

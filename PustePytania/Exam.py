@@ -61,10 +61,10 @@ class Exam:
     @staticmethod
     def create_file(file_name, exam_num):
         """ private """
-        out_dir = f"{os.getcwd()}/out"
+        out_dir = f"{os.getcwd()}/data_files/out"
 
         try:
-            os.mkdir(f"{out_dir}")
+            os.mkdir(f"data_files/{out_dir}")
         except FileExistsError:
             pass
 

@@ -1,4 +1,4 @@
 import os
 
-INPUT_DIR = "out"
-OUTPUT_DIR = "out_testownik"
+INPUT_DIR = "data_files/out"
+OUTPUT_DIR = "data_files/out_testownik"
