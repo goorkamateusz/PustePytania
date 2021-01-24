@@ -1,5 +1,6 @@
 from ImageToText import image_to_text
 from Exam import *
+from Report import *
 
 class PustePytania:
     """ Główna klasa programu """
@@ -80,8 +81,7 @@ class PustePytania:
 
     async def echo(self, message: str) -> None:
         """ Print and send value """
-        await self.ctx.send(message)
-        print(message)
+        await Report.echo(self.ctx, message)
 
     @staticmethod
     def is_photo(url: str) -> bool:

@@ -3,6 +3,7 @@ import Config
 from PustePytania import *
 from RenameFiles import *
 from Downloader import *
+from Report import *
 
 if __name__ == "__main__":
 
@@ -37,6 +38,12 @@ if __name__ == "__main__":
     async def download(ctx, arg):
         """ Pobiera pliki o określonym formacie z kanału """
         await Downloader.get_all_from_channel(ctx, arg)
+
+
+    @bot.command(name="sendmsg")
+    async def send_message(ctx, arg):
+        """ Wysyła wiadomość o podanej treści wiadomość niżej """
+        await Report.echo(ctx, arg)
 
 
     # Uruchomienie bota
