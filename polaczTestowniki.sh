@@ -1,5 +1,5 @@
-outdir="out_testownik"
-indir="out_testownik"
+outdir="data_files/out_testownik"
+indir="data_files/out_testownik"
 
 for dir in `ls "$indir"`
 do
