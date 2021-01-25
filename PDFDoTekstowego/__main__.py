@@ -16,19 +16,13 @@ if __name__ == "__main__":
             print("not pdf")
             continue
 
-
         text_from_pdf = PDFPraser.get_text_from_pdf(name)
-        print(text_from_pdf)
-
-        print("..................")
-        print("..................")
-
         tasks.add_from_pdf_txt(text_from_pdf)
 
-        print("..................")
-        print("..................")
-
         print("parsed")
+
+    tasks.save_to_file("data_files/text_from_pdf.md")
+    print(tasks.print_report())
 
 
 
