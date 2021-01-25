@@ -1,4 +1,5 @@
-import re
+from TextParser import *
+import Config
 
 class Task:
 
@@ -25,7 +26,12 @@ class TaskList:
 
     def add_from_pdf_txt(self, text: str):
         """ public """
-        raise NotImplementedError()
+        parsering = TextParser(text)
+        parsering.delete(TextParser.get_patterns(Config.DELETE_PATT))
+        parsering.delete_head_lines(Config.DELETE_HEADLINES)
+        print(parsering)
+
+        # raise NotImplementedError()
 
     def save_to_file(self, file_path: str):
         """ public """

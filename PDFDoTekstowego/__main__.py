@@ -16,9 +16,20 @@ if __name__ == "__main__":
             print("not pdf")
             continue
 
+
         text_from_pdf = PDFPraser.get_text_from_pdf(name)
-        tasks.add_from_pdf_txt(text_from_pdf
+        print(text_from_pdf)
+
+        print("..................")
+        print("..................")
+
+        tasks.add_from_pdf_txt(text_from_pdf)
+
+        print("..................")
+        print("..................")
 
         print("parsed")
+
+
 
 
