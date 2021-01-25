@@ -12,18 +12,13 @@ if __name__ == "__main__":
         print(f"file: {name} | ", end="")
         name = f"{dir_path}/{name}"
 
-        if not PDFPraser.is_pdf(name):
+        if not PDFParser.is_pdf(name):
             print("not pdf")
             continue
 
-        text_from_pdf = PDFPraser.get_text_from_pdf(name)
+        text_from_pdf = PDFParser.get_text_from_pdf(name)
         tasks.add_from_pdf_txt(text_from_pdf, True)
-
         print("parsed")
 
     tasks.save_to_file("data_files/text_from_pdf.md")
     print(tasks.print_report())
-
-
-
-

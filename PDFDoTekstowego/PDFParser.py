@@ -1,7 +1,7 @@
 import pdftotext
 import os
 
-class PDFPraser:
+class PDFParser:
 
     @staticmethod
     def get_text_from_pdf(file_path: str) -> str:
