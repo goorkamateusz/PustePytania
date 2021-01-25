@@ -14,7 +14,7 @@ class Task:
     def __str__(self):
         txt = f"{self.conntent}\n"
         for ans in self.answers:
-            txt += f"> {ans}\n"
+            txt += f"- {ans}\n"
         return txt
 
     def __eq__(self, oth):
@@ -60,6 +60,9 @@ class TaskList:
         parsering.delete_head_lines(Config.DELETE_HEADLINES)
 
         for task_conn in parsering.split(Config.SPLIT_PATT):
+            if task_conn == "":
+                continue
+
             new_task = Task(task_conn)
             self.all_cnt += 1
 
