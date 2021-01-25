@@ -23,7 +23,7 @@ class TextParser:
 
     def split(self, pattern) -> list:
         """ public """
-        return re.split(pattern, self.text)
+        return self.text.split(pattern)
 
     @staticmethod
     def get_patterns(list_reg: list) -> list:

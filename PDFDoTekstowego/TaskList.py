@@ -4,13 +4,14 @@ import Config
 class Task:
 
     def __init__(self, from_pdf: str):
-        self.conntent = Task.parse(from_pdf)
+        self.conntent = from_pdf
 
     def __str__(self):
-        raise NotImplementedError()
+        return self.conntent
 
     @staticmethod
     def parse(from_pdf: str) -> str:
+        """ private """
         raise NotImplementedError()
 
 
@@ -29,9 +30,18 @@ class TaskList:
         parsering = TextParser(text)
         parsering.delete(TextParser.get_patterns(Config.DELETE_PATT))
         parsering.delete_head_lines(Config.DELETE_HEADLINES)
-        print(parsering)
 
-        # raise NotImplementedError()
+        for task_conn in parsering.split(Config.SPLIT_PATT):
+            new_task = Task(task_conn)
+            self.all_cnt += 1
+
+            if self.is_unique(new_task):
+                self.tasks.append(new_task)
+                self.unique_cnt += 1
+
+    def is_unique(self, new_task: Task) -> bool:
+        """ private """
+        raise NotImplementedError()
 
     def save_to_file(self, file_path: str):
         """ public """
