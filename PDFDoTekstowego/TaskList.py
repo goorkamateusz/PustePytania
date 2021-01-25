@@ -1,21 +1,30 @@
 from TextParser import *
 import Config
+import Debug
 
 class Task:
 
     def __init__(self, from_pdf: str):
-        self.conntent = from_pdf
+        from_pdf = from_pdf.split("\n")
+        self.conntent = from_pdf[0]
+        self.answers = from_pdf[1:]
+        self.answers.sort()
 
     def __str__(self):
-        return self.conntent
+        txt = f"{self.conntent}\n"
+        for ans in self.answers:
+            txt += f"> {ans}\n"
+        return txt
 
     def __eq__(self, oth):
-        return self.conntent == oth.conntent
-
-    @staticmethod
-    def parse(from_pdf: str) -> str:
-        """ private """
-        raise NotImplementedError()
+        if self.conntent != oth.conntent:
+            return False
+        if len(self.answers) != len(oth.answers):
+            return False
+        for i in range(len(self.answers)):
+            if self.answers[i] != oth.answers[i]:
+                return False
+        return True
 
 
 class TaskList:
@@ -28,7 +37,7 @@ class TaskList:
     def __str__(self):
         return self.print_result()
 
-    def add_from_pdf_txt(self, text: str):
+    def add_from_pdf_txt(self, text: str, debug_mode = False):
         """ public """
         parsering = TextParser(text)
         parsering.delete(TextParser.get_patterns(Config.DELETE_PATT))
@@ -43,6 +52,8 @@ class TaskList:
                 self.unique_cnt += 1
             # IDEA mayby list -> set conversion will be faster than is_unique
 
+        if debug_mode:
+            Debug.save_debug_file(f"{self.all_cnt}", str(parsering))
 
     def save_to_file(self, file_path: str):
         """ public """

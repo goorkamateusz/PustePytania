@@ -17,7 +17,7 @@ if __name__ == "__main__":
             continue
 
         text_from_pdf = PDFPraser.get_text_from_pdf(name)
-        tasks.add_from_pdf_txt(text_from_pdf)
+        tasks.add_from_pdf_txt(text_from_pdf, True)
 
         print("parsed")
 
