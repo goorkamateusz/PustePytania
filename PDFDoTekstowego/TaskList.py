@@ -1,3 +1,4 @@
+import os
 from TextParser import *
 import Config
 import Debug
@@ -25,6 +26,21 @@ class Task:
             if self.answers[i] != oth.answers[i]:
                 return False
         return True
+
+    def save_to_testownik(self, dir_path: str, num: int):
+        """ public """
+        file = open(f"{dir_path}/{num}.txt", "w")
+        file.write(self.print_to_testownik())
+        file.close()
+
+    def print_to_testownik(self) -> str:
+        """ public """
+        out = "X"
+        for _ in range(len(self.answers)):
+            out += "0"
+        out += f"\n{self.conntent}\n"
+        out += "\n".join(self.answers)
+        return out
 
 
 class TaskList:
@@ -77,3 +93,13 @@ class TaskList:
         for i in range(len(self.tasks)):
             out += f"## Pytanie {i}\n{self.tasks[i]}\n\n"
         return out
+
+    def save_to_testownik(self, dir_path: str):
+        """ public """
+        try:
+            os.mkdir(dir_path)
+        except FileExistsError:
+            pass
+
+        for i in range(len(self.tasks)):
+            self.tasks[i].save_to_testownik(dir_path, i)

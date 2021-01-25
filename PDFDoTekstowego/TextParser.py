@@ -32,4 +32,3 @@ class TextParser:
         for reg in list_reg:
             patterns.append(re.compile(reg))
         return patterns
-        

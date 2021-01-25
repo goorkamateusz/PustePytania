@@ -21,4 +21,5 @@ if __name__ == "__main__":
         print("parsed")
 
     tasks.save_to_file("data_files/text_from_pdf.md")
+    tasks.save_to_testownik("data_files/testownik_from_pdfs")
     print(tasks.print_report())
