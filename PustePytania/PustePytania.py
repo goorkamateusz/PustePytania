@@ -1,6 +1,6 @@
 from ImageToText import image_to_text
 from Exam import *
-from Report import *
+import Report
 
 class PustePytania:
     """ Główna klasa programu """

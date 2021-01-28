@@ -64,7 +64,7 @@ class Exam:
         out_dir = f"{os.getcwd()}/data_files/out"
 
         try:
-            os.mkdir(f"data_files/{out_dir}")
+            os.mkdir(f"{out_dir}")
         except FileExistsError:
             pass
 
