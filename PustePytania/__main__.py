@@ -40,7 +40,7 @@ if __name__ == "__main__":
         await Downloader.get_all_from_channel(ctx, arg)
 
 
-    @bot.command(name="sendmsg")
+    @bot.command(name="echo")
     async def send_message(ctx, arg):
         """ Wysyła wiadomość o podanej treści wiadomość niżej """
         await Report.echo(ctx, arg)
