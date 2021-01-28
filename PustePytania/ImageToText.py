@@ -13,12 +13,17 @@ def image_to_text( path ):
     result = pytesseract.image_to_string( img, lang="pol" )
 
     # Przetworzenie tekstu
-    result = re.sub( "\n.*(PRAWDA)|\n.*(FAŁSZ)", "", result )
-    result = result.replace("\n", " ")
-    result = result.replace("  ", " ")
-    result = result.replace("  ", " ")
-    result = result.replace("", "")
-    result = result.replace("Odznacz mój wybór", "")
+    patterns_to_rm = [
+        r"\n(.)*(PRAWDA)|\n(.)*(FAŁSZ)",
+        r"(  )*",
+        r"(\n)*",
+        r"()",
+        r"(Odznacz mój wybór)",
+        r"( )*[oO]*( )*[oO]*( )*$"
+    ]
+
+    for pattern in patterns_to_rm:
+        result = re.compile(pattern).sub('', result)
 
     # Zwraca wynik
     return result
