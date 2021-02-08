@@ -21,7 +21,7 @@ I skonfigurować zmienną TOKEN w pliku `Config.py`.
 
 Następnie uruchamiamy poleceniem:
 ```
-python3 PustePytania
+python3 .
 ```
 
 Domyślnie w folderze `out` zapiszą się pliki z testami!
