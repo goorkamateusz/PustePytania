@@ -1,5 +1,5 @@
 import os
-import Config
+import PustePytania.Config as Config
 
 class RenameFiles:
     """ Rename output files """

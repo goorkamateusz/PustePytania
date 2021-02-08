@@ -1,6 +1,6 @@
-from ImageToText import image_to_text
-from Exam import *
-import Report
+from PustePytania.ImageToText import image_to_text
+from PustePytania.Exam import *
+import PustePytania.Report as Report
 
 class PustePytania:
     """ Główna klasa programu """

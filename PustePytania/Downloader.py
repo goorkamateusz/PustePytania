@@ -1,7 +1,7 @@
 import os
 import requests
 import re
-import Report
+import PustePytania.Report as Report
 
 class Downloader:
     local_dir = "data_files/download"

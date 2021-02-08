@@ -1,9 +1,9 @@
 from discord.ext import commands
-import Config
-from PustePytania import *
-from RenameFiles import *
-from Downloader import *
-from Report import *
+import PustePytania.Config as Config
+from PustePytania.PustePytania import PustePytania
+from PustePytania.RenameFiles import *
+from PustePytania.Downloader import *
+from PustePytania.Report import *
 
 if __name__ == "__main__":
 
