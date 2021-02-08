@@ -1,8 +1,7 @@
 """ Klasa testu """
-from Task import *
-from Counter import *
-from CompareString import *
-from ImageToText import image_to_text
+from PustePytania.Task import *
+from PustePytania.Counter import *
+from PustePytania.CompareString import *
 import os
 
 
@@ -25,18 +24,13 @@ class Exam:
 
     def append(self, new_task: Task):
         """ Append new task """
-        existing_task = self.find_already_added(new_task)
+        existing_task = self._find_already_added(new_task)
         if existing_task is None:
             self.task_list.append( new_task )
         else:
             existing_task.sum_stats(new_task)
             raise reapetedTask()
 
-    def find_already_added(self, new_task) -> Task:
-        """ Find already existed task on list """
-        for task in self.task_list:
-            if CompareString.is_similar(task.text, new_task.text, self.strictness):
-                return task
         return None
 
     def sort(self) -> None:
@@ -48,6 +42,12 @@ class Exam:
         """ Clear task list """
         del self.task_list
         self.task_list = []
+
+    def _find_already_added(self, new_task) -> Task:
+        """ Find already existed task on list """
+        for task in self.task_list:
+            if CompareString.is_similar(task.text, new_task.text, self.strictness):
+                return task
 
     def save(self, file_name, exam_num, file_head = 0):
         """ Save to file """
