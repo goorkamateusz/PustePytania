@@ -7,10 +7,10 @@
 
 
 <Treść pytania>
-<Odpowiedź> | prawda:<licznk>, fałsz:<licznik>
+<Odpowiedź> | <procent max/suma> | prawda:<licznk>, fałsz:<licznik>
 
 <Treść pytania>
-<Odpowiedź> | prawda:<licznk>, fałsz:<licznik>, nie wiem:<licznik>
+<Odpowiedź> | <procent max/suma> | prawda:<licznk>, fałsz:<licznik>, nie wiem:<licznik>
 
 <kolejne pytania...>
 

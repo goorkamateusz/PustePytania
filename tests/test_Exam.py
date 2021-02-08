@@ -2,6 +2,7 @@ import pytest
 from PustePytania.Exam import Exam
 from PustePytania.Exam import reapetedTask
 from PustePytania.Task import Task
+from tests.Mocks import mockReaction
 
 examples_text_for_append = [
     ([ "oneoneone", "twotwotwotwo", "threethreethree" ],
@@ -20,10 +21,6 @@ examples_text_for_sorting = [
 @pytest.fixture
 def empty_exam():
     return Exam()
-
-class mockReaction:
-    def __init__(self):
-        self.emoji = []
 
 def create_task_list(task_text_list) -> list:
     tasks = []

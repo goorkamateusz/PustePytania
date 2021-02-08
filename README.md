@@ -65,7 +65,7 @@ Możesz je wykorzystywać osobno, albo połączyć w jedną wspólną bazę pole
 - Jeżeli pytanie jest uznane za niepewne (odpowiedź "? ? ?") to w pliku testownika, żadna odpowiedź nie jest poprawna;
 
 ### Standardy plików wyjściowych
-[Struktura pliku wyjściowego](DOCS.md#Plik-wyjsciowy)
+[Struktura pliku wyjściowego](doc/DOCS.md#Plik-wyjsciowy)
 
 ## Autor
 Górka Mateusz (@goorkmateusz)
