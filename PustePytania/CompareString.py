@@ -7,7 +7,7 @@ class CompareString:
 
     @staticmethod
     def compare(first: str, second: str) -> int:
-        """ Porowuje teksty """
+        """ Porowuje teksty i zwraca ile znaków jest różnych"""
         return CompareString.Levenshtein_Distance(first, second)
 
     @staticmethod
@@ -57,7 +57,7 @@ class CompareString:
     @staticmethod
     def Levenshtein_Distance_Opt(first: str, second: str, strictness: int) -> bool:
         """ Zoptymalizowany algorytm Levensteina, ktory przerywa dzialanie po przekroczeniu strictness """
-        if abs(len(first) - len(second)) >= strictness:
+        if abs(len(first) - len(second)) > strictness:
             return False
 
         first = " " + first
@@ -76,7 +76,7 @@ class CompareString:
                 arr[i,j] = min(arr[i-1, j]+1, arr[i, j-1]+1, arr[i-1, j-1]+cost)
 
                 if i == j:
-                    if arr[i,j] >= strictness:
+                    if arr[i,j] > strictness:
                         return False
 
-        return arr[len_first-1, len_second-1] < strictness
+        return arr[len_first-1, len_second-1] <= strictness
