@@ -17,9 +17,9 @@ class Counter:
             return self.exam >= exam_num_max
 
     def __iadd__(self, oth):
-        self.screen   = self.screen
-        self.skip     = self.skip
-        self.exam     = self.exam
-        self.msg      = self.msg
-        self.reapeted = self.reapeted
+        self.screen   += oth.screen
+        self.skip     += oth.skip
+        self.exam     += oth.exam
+        self.msg      += oth.msg
+        self.reapeted += oth.reapeted
         return self
