@@ -16,30 +16,28 @@ pip3 install -r requirements.txt
 ```
 
 ## Uruchomienie
-Należy utworzyć i skonfigurować bota w [panelu developera](http://discord.com/developers).
-I skonfigurować zmienną TOKEN w pliku `PustePytania/Config.py`.
+Należy utworzyć i skonfigurować bota w [panelu developera](http://discord.com/developers). I skonfigurować zmienną TOKEN w pliku `PustePytania/Config.py`.
+Oraz dodać bota do naszego serwera Discord.
 
-Następnie uruchamiamy poleceniem:
+Następnie możemy uruchomic bota poleceniem:
 ```
 python3 PustePytania
 ```
 
-Domyślnie w folderze `out` zapiszą się pliki z testami!
+Resztę obsługi wykonujemy na konretnym kanale na Discordzie, za pomocą odpowiednich poleceń ([Lista poleceń](#lista-poleceń)).
 
-### Jak zapisać, jako baza pytań do testownika?
-Uruchamiamy w folderze bota:
 
-```
-python3 DoTestownika
-```
+## Lista poleceń
+| Polecenie       | Opis
+| :-              | :-
+| `!readchannel`  | Czyta wszystkie wiadomości na kanale i przetwarza zgodnie z zasadami [Wykorzystanie](#wykorzystanie).
+| `!readlast`     | Czyta i przetwarza jedynie wiadomości do pierwszego zdjęcia z reakcją 🆕.
+| `!download ext` | Pobiera z kanału wszystkie pliki o rozszerzeniue podanym w miejscu `ext`
+| `!echo "tekst"` | Odpowiada wiadomością o treści podanej w miejscu `tekst`.
 
-Domyślnie w folderze `out_testownik` zapiszą się bazy pytań do każdego z testu.
 
-Możesz je wykorzystywać osobno, albo połączyć w jedną wspólną bazę poleceniem:
+Domyślnie `!readchannel` i `!readlast` zapisują wyniki w folderze `data_files/out`. `!download` zapisuje pliki w `data_files/download`.
 
-```
-./polaczTestowniki.sh
-```
 
 ## Wykorzystanie
 - Wiadomość z zadaniem musi zawierać zdjęcie w formacie jpg lub png.
@@ -54,19 +52,34 @@ Możesz je wykorzystywać osobno, albo połączyć w jedną wspólną bazę pole
   - Reakcja "⏭" oznacza odpowiedź, jako `NIE WIEM`;
   - Pojedyncza reakcja `PRAWDA`, `FAŁSZ` oraz `NIE WIEM` jest pomijana;
 
-- Za powtórzenia uznane są screeny, w których liczba różnic w tekście jest większa niż 4 (`Exam.strictness`).
+- Za powtórzenia uznane są screeny, w których liczba różnic w tekście jest większa niż 4 (`Exam.__strictness`).
   Różnica jest wyliczana [Odległością Levenshteina](https://pl.wikipedia.org/wiki/Odleg%C5%82o%C5%9B%C4%87_Levenshteina).
 
+
+## Integracje
+### Jak zapisać, jako baza pytań do testownika?
+Uruchamiamy w folderze projektu:
+
+```
+python3 DoTestownika
+```
+
+Domyślnie na podstawie plików z `data_files/out` stworzy bazy testownika dla każdego z testów w folderze `data_files/out_testownik`.
+
+Następnie bazy można połączyć w jedną jedną wspólną bazę poleceniem `./polaczTestowniki.sh` lub wykorzystywać osobno.
+```
+./polaczTestowniki.sh
+```
 
 ## Warto doczytać
 
 ### Testownik
 - Na końcu polecenia w pliku testownika dodawany jest procent na ile odpowiedź jest poprawna;
-- Jeżeli pytanie jest uznane za niepewne (odpowiedź "? ? ?") to w pliku testownika, żadna odpowiedź nie jest poprawna;
+- Jeżeli pytanie jest uznane za niepewne (odpowiedź "? ? ?") to w pliku testownika, żadna odpowiedź nie jest uznana za poprawną;
 
 ### Standardy plików wyjściowych
 [Struktura pliku wyjściowego](doc/DOCS.md#Plik-wyjsciowy)
 
 ## Autor
-Górka Mateusz (@goorkmateusz)
+Górka Mateusz ([@goorkmateusz](https://goorkamateusz.github.io))
 
