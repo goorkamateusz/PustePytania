@@ -1,9 +1,9 @@
-from discord.ext import commands
-import PustePytania.Config
+import Config
 from PustePytania.PustePytania import *
 from PustePytania.RenameFiles import *
-from PustePytania.Downloader import *
-from PustePytania.Report import *
+from Bot.Downloader import *
+from Bot.Report import *
+from discord.ext import commands
 
 if __name__ == "__main__":
 
@@ -55,6 +55,11 @@ if __name__ == "__main__":
             !echo "treść do wyświetlenia"
         """
         await Report.echo(ctx, arg)
+
+    @bot.command(name="test")
+    async def test_last_message(ctx):
+        """ """
+        raise NotImplemented()
 
 
     # Uruchomienie bota

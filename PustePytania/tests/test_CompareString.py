@@ -1,5 +1,5 @@
 import pytest
-from PustePytania.CompareString import CompareString as cs
+from Lib.CompareString import CompareString as cs
 
 example_pair = [
         ("abcdefghijk", "abcdefghijk", 0),

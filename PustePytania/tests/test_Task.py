@@ -1,6 +1,6 @@
 import pytest
-from PustePytania.Task import Task
 from tests.Mocks import mockReaction
+from PustePytania.Task import *
 
 @pytest.fixture
 def task():

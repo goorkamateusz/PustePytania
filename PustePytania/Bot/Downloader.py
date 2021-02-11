@@ -1,7 +1,6 @@
+from Bot import Report
 import os
 import requests
-import re
-import PustePytania.Report as Report
 
 class Downloader:
     local_dir = "data_files/download"
