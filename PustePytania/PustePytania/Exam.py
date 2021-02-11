@@ -1,4 +1,3 @@
-""" Klasa testu """
 from PustePytania.Counter import *
 from PustePytania.Task import *
 from Lib.CompareString import *
@@ -7,17 +6,18 @@ import os
 
 
 class Exam:
-    """ Klasa testu, gromadzi wszystkie pytania. Zajmuje się m.in. zapisem, duplikatami. """
-    __strictness = 4        # Dokładność porównywania stringów
+    """ [PL] Klasa testu, gromadzi wszystkie pytania. Zajmuje się m.in. zapisem, duplikatami. """
+    __strictness = 4        # Strictness in task text comparing
 
     def __init__(self):
         self.task_list = []
 
     def __len__(self):
+        """ Get length of task list """
         return len(self.task_list)
 
     def is_empty(self):
-        """ public """
+        """ Task list is empty? """
         return len(self) == 0
 
     def clear(self) -> None:
@@ -56,7 +56,6 @@ class Exam:
 
     @staticmethod
     def __create_file(file_name, exam_num):
-        """ private """
         out_dir = f"{os.getcwd()}/data_files/out"
 
         try:

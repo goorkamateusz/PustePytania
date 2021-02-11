@@ -17,11 +17,11 @@ pip3 install -r requirements.txt
 
 ## Uruchomienie
 Należy utworzyć i skonfigurować bota w [panelu developera](http://discord.com/developers).
-I skonfigurować zmienną TOKEN w pliku `Config.py`.
+I skonfigurować zmienną TOKEN w pliku `PustePytania/Config.py`.
 
 Następnie uruchamiamy poleceniem:
 ```
-python3 .
+python3 PustePytania
 ```
 
 Domyślnie w folderze `out` zapiszą się pliki z testami!

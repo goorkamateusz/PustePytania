@@ -4,7 +4,7 @@ import requests
 import re
 
 def image_to_text( path ):
-    """ Konwertuje zdjęcie na tekst """
+    """ [PL] Konwertuje zdjęcie na tekst """
     # Przetworzenie obrazu
     resp = requests.get( path, stream=True )
     img = Image.open( resp.raw )

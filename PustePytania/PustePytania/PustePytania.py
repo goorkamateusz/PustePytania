@@ -3,11 +3,11 @@ from PustePytania.Exam import *
 from Bot import Report
 
 class PustePytania:
-    """ Główna klasa programu """
+    """ [PL] Główna klasa programu """
 
     @staticmethod
     def check_config(config) -> bool:
-        """ Sprawdza poprawnosc pliku konfiguracji """
+        """ [PL] Sprawdza poprawnosc pliku konfiguracji """
         if config.TOKEN == "twoj token":
             print("Error: Skonfiguruj swoj token w pliku PustePytania/Config.py!")
             return False
@@ -20,7 +20,7 @@ class PustePytania:
 
     @staticmethod
     async def readchannel(ctx, file_head, exam_num_max = 0 ):
-        """ Czyta z historii kanalow okrelsona ilosc testow.
+        """ [PL] Czyta z historii kanalow okrelsona ilosc testow.
         ctx - discord ctx
         file_head - naglowek pliku tekstowego
         exam_num_max - ilosc testow do wczytania (0 - jesli wczytac wszystkie)

@@ -27,7 +27,7 @@ if __name__ == "__main__":
         """
         Czyta i przetwarza obrazy z historii z kanału, na którym został wywołany.
         """
-        await PustePytania.readchannel( ctx, Config.file_head )
+        await PustePytania.readchannel( ctx, Config.FILE_HEAD )
         RenameFiles.rename(Config.EXAM_NAME)
 
 
@@ -36,7 +36,7 @@ if __name__ == "__main__":
         """
         Czyta i przetwarza obrazy z historii do najświeższej reakcji 🆕 (tylko ostatni tesst)
         """
-        await PustePytania.readchannel( ctx, Config.file_head, 1 )
+        await PustePytania.readchannel( ctx, Config.FILE_HEAD, 1 )
         RenameFiles.rename(Config.EXAM_NAME)
 
 
@@ -56,9 +56,13 @@ if __name__ == "__main__":
         """
         await Report.echo(ctx, arg)
 
+
     @bot.command(name="test")
     async def test_last_message(ctx):
-        """ """
+        """
+        Wysyła wiadomość z wynikiem ostatniej z przetworzonych wiadomości.
+        """
+        # todo
         raise NotImplemented()
 
 

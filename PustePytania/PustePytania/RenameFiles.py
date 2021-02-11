@@ -6,7 +6,7 @@ class RenameFiles:
 
     @staticmethod
     def rename(exam_name: str):
-        """ public static """
+        """ Rename output files from Puste pytania """
         dir_name = "data_files/out"
         exam_files = list(os.listdir(dir_name))
 
