@@ -46,7 +46,7 @@ class Exam:
     def _find_already_added(self, new_task) -> Task:
         """ Find already existed task on list """
         for task in self.task_list:
-            if CompareString.is_similar(task.text, new_task.text, self.strictness):
+            if CompareString.is_similar(task.get_text(), new_task.get_text(), self.strictness):
                 return task
 
     def save(self, file_name, exam_num, file_head = 0):

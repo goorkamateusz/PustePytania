@@ -1,7 +1,6 @@
-""" Counter of data """
 
 class Counter:
-    """ Counter of data """
+    """ Counter of process statistics """
     def __init__(self):
         self.screen = 0
         self.skip   = 0
@@ -17,6 +16,7 @@ class Counter:
             return self.exam >= exam_num_max
 
     def __iadd__(self, oth):
+        """ += operator """
         self.screen   += oth.screen
         self.skip     += oth.skip
         self.exam     += oth.exam
