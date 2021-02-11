@@ -10,12 +10,9 @@ def task():
 
 def test_init():
     task = Task([])
-    assert task.text == ""
-    assert task.yes_cnt == 0
-    assert task.no_cnt == 0
-    assert task.skip_cnt == 0
-    assert task.new_exam == False
-    assert task.skip_photo == False
+    assert task.skip() == False
+    assert task.end_of_exam() == False
+    assert str(task) == "\n? ? ?  | 0.00 | prawda:0, fałsz:0"
 
 @pytest.mark.parametrize("reactions, expected", [
     (   [mockReaction("✔️", 9), mockReaction("❌", 2)],
@@ -41,7 +38,7 @@ def test__str__(reactions, expected: str):
 def test_set_text(task: Task):
     example = "Example text"
     task.set_text(example)
-    assert task.text == example
+    assert task.get_text() == example
 
 # todo skip test
 # todo end of exam test

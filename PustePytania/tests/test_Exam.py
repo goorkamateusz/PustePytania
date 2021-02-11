@@ -1,6 +1,6 @@
 import pytest
 from PustePytania.Exam import Exam
-from PustePytania.Exam import reapetedTask
+from PustePytania.Exceptions import ReapetedTask
 from PustePytania.Task import Task
 from tests.Mocks import mockReaction
 
@@ -61,11 +61,11 @@ def test_append_removing_reapeated(text_list, expected):
         try:
             exam.append(task_example)
         except Exception as e:
-            assert isinstance(e, reapetedTask)
+            assert isinstance(e, ReapetedTask)
 
     actual = exam.task_list
     assert len(actual) == len(expected)
-    assert all([a.text == e for a, e in zip(actual, expected)])
+    assert all([a.get_text() == e for a, e in zip(actual, expected)])
 
 @pytest.mark.parametrize("text_list, expected", examples_text_for_sorting)
 def test_sort(text_list, expected):
@@ -76,10 +76,10 @@ def test_sort(text_list, expected):
         try:
             exam.append(task_example)
         except Exception as e:
-            assert isinstance(e, reapetedTask)
+            assert isinstance(e, ReapetedTask)
 
     exam.sort()
 
     actual = exam.task_list
     assert len(actual) == len(expected)
-    assert all([a.text == e for a, e in zip(actual, expected)])
+    assert all([a.get_text() == e for a, e in zip(actual, expected)])

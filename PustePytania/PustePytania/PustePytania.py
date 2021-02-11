@@ -45,7 +45,7 @@ class PustePytania:
 
                         try:
                             exam.append( task )
-                        except reapetedTask:
+                        except ReapetedTask:
                             print( f"\n{cnt.msg} msg, {cnt.screen} img | POWTORZENIE!" )
                             cnt.reapeted += 1
                         else:
