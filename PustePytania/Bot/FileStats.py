@@ -1,0 +1,26 @@
+from Bot import Report
+import Config
+import os
+import requests
+
+class FileStats:
+
+    @staticmethod
+    async def stats(ctx, ext: str) -> None:
+        """ Count all stats on channel """
+        authors = {}
+
+        async for message in ctx.channel.history(limit=None):
+            for att in message.attachments:
+                if att.filename.split('.')[-1] == ext:
+                    if message.author in authors:
+                        authors[message.author] += 1
+                    else:
+                        authors[message.author] = 1
+
+            message = ":fire"
+            for author in authors.keys:
+                message += f"{author}  -  {authors[author]}"
+
+            await ctx.send(message)
+

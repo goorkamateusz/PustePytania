@@ -19,12 +19,12 @@ pip3 install -r requirements.txt
 Należy utworzyć i skonfigurować bota w [panelu developera](http://discord.com/developers). I skonfigurować zmienną TOKEN w pliku `PustePytania/Config.py`.
 Oraz dodać bota do naszego serwera Discord.
 
-Następnie możemy uruchomic bota poleceniem:
+Następnie możemy uruchomić bota poleceniem:
 ```
 python3 PustePytania
 ```
 
-Resztę obsługi wykonujemy na konretnym kanale na Discordzie, za pomocą odpowiednich poleceń ([Lista poleceń](#lista-poleceń)).
+Resztę obsługi wykonujemy na konkretnym kanale na Discordzie, za pomocą odpowiednich poleceń ([Lista poleceń](#lista-poleceń)).
 
 
 ## Lista poleceń
@@ -32,7 +32,8 @@ Resztę obsługi wykonujemy na konretnym kanale na Discordzie, za pomocą odpowi
 | :-              | :-
 | `!readchannel`  | Czyta wszystkie wiadomości na kanale i przetwarza zgodnie z zasadami [Wykorzystanie](#wykorzystanie).
 | `!readlast`     | Czyta i przetwarza jedynie wiadomości do pierwszego zdjęcia z reakcją 🆕.
-| `!download ext` | Pobiera z kanału wszystkie pliki o rozszerzeniue podanym w miejscu `ext`
+| `!download <ext>` | Pobiera z kanału wszystkie pliki o rozszerzeniu.
+| `!filestat <ext>` | Wysyła statystyki, kto ile wrzucił plików o danym formacie.
 | `!echo "tekst"` | Odpowiada wiadomością o treści podanej w miejscu `tekst`.
 
 
@@ -53,7 +54,7 @@ Domyślnie `!readchannel` i `!readlast` zapisują wyniki w folderze `data_files/
   - Pojedyncza reakcja `PRAWDA`, `FAŁSZ` oraz `NIE WIEM` jest pomijana;
 
 - Za powtórzenia uznane są screeny, w których liczba różnic w tekście jest większa niż 4 (`Exam.__strictness`).
-  Różnica jest wyliczana [Odległością Levenshteina](https://pl.wikipedia.org/wiki/Odleg%C5%82o%C5%9B%C4%87_Levenshteina).
+  Różnica jest wyliczana [Odległością Levenshtein'a](https://pl.wikipedia.org/wiki/Odleg%C5%82o%C5%9B%C4%87_Levenshteina).
 
 
 ## Integracje
