@@ -18,9 +18,9 @@ class FileStats:
                     else:
                         authors[message.author] = 1
 
-            message = ":fire"
-            for author in authors.keys:
-                message += f"{author}  -  {authors[author]}"
+        message = ":fire"
+        for author in authors.keys:
+            message += f"{author}  -  {authors[author]}"
 
-            await ctx.send(message)
+        await ctx.send(message)
 

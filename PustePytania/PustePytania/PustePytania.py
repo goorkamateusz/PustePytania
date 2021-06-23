@@ -12,7 +12,7 @@ class PustePytania:
             print("Error: Skonfiguruj swoj token w pliku PustePytania/Config.py!")
             return False
 
-        if "\n\n\n" in config.file_head:
+        if "\n\n\n" in config.FILE_HEAD:
             print("Error: Naglowek pliku nie powinnien zawierac dwoch pustych linii")
             return False
 

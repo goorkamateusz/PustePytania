@@ -1,3 +1,4 @@
+from Bot import FileStats
 import Config
 from PustePytania.PustePytania import *
 from PustePytania.RenameFiles import *
@@ -55,6 +56,11 @@ if __name__ == "__main__":
             !echo "treść do wyświetlenia"
         """
         await Report.echo(ctx, arg)
+
+
+    @bot.comand(name="filestat")
+    async def file_stats(ctx, arg):
+        await FileStats.stats(ctx, arg)
 
 
     @bot.command(name="test")
