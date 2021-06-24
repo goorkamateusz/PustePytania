@@ -1,5 +1,5 @@
 pytesseract
 discord.py
 requests
-PIL
+Pillow
 numpy
